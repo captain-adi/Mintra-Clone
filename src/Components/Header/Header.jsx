@@ -15,7 +15,7 @@ function Header() {
         {/* logo  */}
         <Link to="/">
         <img
-          src="public/Image/myntra_logo.webp"
+          src="/Image/myntra_logo.webp"
           alt=""
           className="h-[2.9rem]"
           />
