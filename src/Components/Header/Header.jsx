@@ -10,8 +10,8 @@ function Header() {
   const bagItems = useSelector(state => state.bag)
   return (
     // main div
-    <div className=" flex justify-between items-center h-[5.5rem]">
-      <div className="flex justify-evenly items-center w-[85vw]">
+    <div className=" flex justify-between items-center h-[5.5rem] ">
+      <div className="flex justify-evenly items-center w-[85vw]  ">
         {/* logo  */}
         <Link to="/">
         <img

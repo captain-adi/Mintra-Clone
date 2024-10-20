@@ -96,8 +96,15 @@
     font-size: 13px;
     line-height: 1.42857143;
   }
+  @media (max-width: 900px) {
+  .bag-items-container{
+    width: 100%; /* Full width on smaller screens */
+ 
+  }
+}
   
   .bag-page {
+   margin-bottom: 100px;
     width: 75%;
     margin-left: 12.5%;
   }
@@ -111,6 +118,12 @@
     font-size: 13px;
     line-height: 1.42857143;
   }
+  @media (max-width: 870px) {
+  .bag-summary{
+   display: block;
+   width: 100%;
+  }
+}
   
   .bag-details-container {
     margin-bottom: 16px;
@@ -176,6 +189,7 @@
     height: 148px;
     width: 111px;
   }
+
   
   .item-right-part {
     padding-left: 12px;
