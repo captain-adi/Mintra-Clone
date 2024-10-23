@@ -10,31 +10,31 @@ function Header() {
   const bagItems = useSelector(state => state.bag)
   return (
     // main div
-    <div className=" flex justify-between items-center h-[5.5rem] ">
-      <div className="flex justify-evenly items-center w-[85vw]  ">
+    <div className=" flex justify-between items-center h-[6.5rem] mobile:flex-col ">
+      <div className="flex justify-evenly items-center w-[85vw]  mobile:w-full moblie:flex-col mb-2 smmobile:flex-col ">
         {/* logo  */}
         <Link to="/">
         <img
           src="/Image/myntra_logo.webp"
           alt=""
-          className="h-[2.9rem]"
+          className="h-[2.9rem] mobile:h-[2rem] m-2"
           />
           </Link>
         {/* navbar  */}
-        <div className="flex list-none gap-[3rem] text-xs font-semibold ">
+        <div className="flex list-none gap-[3rem] text-xs font-semibold  mobile:text-[13px] smmobile:gap-7">
           <Link to="#">MEN</Link>
           <Link to="#">WOMEN</Link>
           <Link to="#">KIDS</Link>
-          <Link to="#">HOME & LINING</Link>
+          <Link to="#" className="text-center">HOME & LINING</Link>
           <Link to="#">BEAUTY</Link>
           <Link to="#">STUDIO</Link>
         </div>
 
-      <div className="flex items-center w-[40%] border rounded-md shadow-sm bg-gray-100">
+      <div className="flex items-center w-[40%] border rounded-md shadow-sm bg-gray-100 mobile:hidden">
         <FiSearch className="ml-3 text-gray-500" />
-        <input
+        <input 
           type="text"
-          className="w-full py-2 px-4 bg-transparent outline-none text-sm"
+          className="w-full py-2 px-4 bg-transparent outline-none text-sm "
           placeholder="Search for products, brands and more"
         />
       </div>

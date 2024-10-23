@@ -10,7 +10,7 @@ function Bag() {
   return (
     <main>
       <div className="bag-page">
-        <div className="bag-items-container">
+        <div className="bag-items-container ">
           {bagItems.length == 0 ? (
             <h1 className="font-light text-2xl text-center ">bag is empty</h1>
           ) : (
