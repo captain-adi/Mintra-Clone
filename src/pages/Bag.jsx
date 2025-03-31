@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import Bagitems from "./Bagitems";
-import BagDetails from "./BagDetails";
+import Bagitems from "../Components/Bag/Bagitems.jsx"
 import { useSelector } from "react-redux";
 
 function Bag() {
