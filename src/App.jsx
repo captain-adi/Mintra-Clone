@@ -12,10 +12,9 @@ function App() {
     const datafetch = async () => {
       const response = await fetch("https://api.escuelajs.co/api/v1/products");
       const responseData = await response.json();
-      console.log(responseData);
       dispatch(fetchData(responseData)); // ✅ Dispatch after fetching data
     };
-
+     
     datafetch(); // ✅ Fetch data
   }, [dispatch]);
 
