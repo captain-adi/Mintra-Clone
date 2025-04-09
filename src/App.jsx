@@ -4,13 +4,13 @@ import { Outlet } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import { fetchData } from "./Features/dataSlice";
-
+import { ToastContainer, toast } from 'react-toastify';
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     const datafetch = async () => {
-      const response = await fetch("https://api.escuelajs.co/api/v1/products");
+      const response = await fetch("https://dummyjson.com/products");
       const responseData = await response.json();
       dispatch(fetchData(responseData)); // ✅ Dispatch after fetching data
     };
@@ -22,6 +22,7 @@ function App() {
 
   return (
     <div>
+       <ToastContainer />
       <Header />
       <Outlet/>
       <Footer />

@@ -9,7 +9,7 @@ function Categories() {
   useEffect(() => {
     const fetchCategory = async () => {
       const response = await fetch(
-        "https://api.escuelajs.co/api/v1/categories"
+        'https://api.escuelajs.co/api/v1/categories'
       );
       const data = await response.json();
       dispatch(setCategories(data)); // Dispatch action with fetched data
@@ -19,7 +19,6 @@ function Categories() {
 
   const { categories } = useSelector((state) => state.category); // Fixed selector
 
-
   return (
     <>
       <h3 className="bagCategorieshead text-xl ml-3 md:text-3xl font-semibold text-gray-800 mb-0 pb-0 border-b-2 border-gray-200 md:pb-2 md:mb-6 md:mt-8 md:ml-5">
@@ -27,7 +26,7 @@ function Categories() {
       </h3>
       <section className="bagcategory bg-gray-100">
         <div className="upperBagCategories flex gap-10 p-7">
-          {categories?.slice(0, 5).map((obj) => (
+          {categories.slice(0,5)?.map((obj) => (
             <div className="bagcard " key={obj.id}>
               <Link to={`/category/${obj.slug}`}>
                 <img src={obj.image} alt={obj.name} />

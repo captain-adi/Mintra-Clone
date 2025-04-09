@@ -17,7 +17,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer>
+    <footer className=" relative bottom-0">
       <div className="py-8 bg-gray-100 flex justify-evenly flex-wrap">
         {footerLinks.map((section, index) => (
           <div key={index} className="flex flex-col">

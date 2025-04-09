@@ -5,9 +5,8 @@ import Cetogeries from "../Components/Cetogeries";
 import Trending from "../Components/Trending";
 
 function Home() {
-  const { allItems, loading } = useSelector((state) => state.data);
-  console.log("allitems is :", allItems)
- // ✅ Check if data is stored in Redux
+  
+
   return (
     <div>
       <Carousel />
