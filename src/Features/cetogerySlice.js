@@ -16,5 +16,5 @@ const categorySlice = createSlice({
   }
 });
 
-export const { setCategories ,setProduct } = categorySlice.actions; // Export the corrected action
+export const { setCategories ,setProduct } = categorySlice.actions; // Export 
 export default categorySlice.reducer;

@@ -1,12 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-const BagSlice = createSlice({
+const bagSlice = createSlice({
   name: "bag",
-  initialState: [],
+  initialState: {
+    bagItems : []
+  },
   reducers: {
   addBagitems : (state,actions)=>{
-    console.log("addbagitems")
+    state.bagItems.push(actions.payload)
+    console.log([...state.bagItems]);
+
   },
   deleteBagItems : (state,actions)=>{
     console.log("deltebagitems")
@@ -14,5 +18,5 @@ const BagSlice = createSlice({
   },
 });
 
-export const { addBagitems, deleteBagItems } = BagSlice.actions;
-export default BagSlice;
+export const { addBagitems, deleteBagItems } = bagSlice.actions;
+export default bagSlice.reducer;
