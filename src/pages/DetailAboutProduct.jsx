@@ -8,10 +8,12 @@ import { useDispatch } from "react-redux";
 import { addBagitems } from "../Features/BagSlice";
 import { CiHeart } from "react-icons/ci";
 import { LiaRupeeSignSolid } from "react-icons/lia";
+import { setWishlistItems } from "../Features/wishlistSlice";
 
 const DetailAboutProduct = () => {
   const dispatch = useDispatch();
-  const notify = () => toast("Added to Cart");
+  const addToCart = () => {toast.success("ADDED TO CART") };
+  const addToWishlist = () => toast.success("ADDED TO WISHLIST");
   const [product, setProduct] = useState(null);
   const { id } = useParams();
 
@@ -33,7 +35,7 @@ const DetailAboutProduct = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <ToastContainer />
+      <ToastContainer autoClose={3000} />
 
       <div className="grid md:grid-cols-2 gap-10">
         {/* Image Section */}
@@ -82,7 +84,7 @@ const DetailAboutProduct = () => {
           <div className="flex  gap-10">
           <button
             onClick={() => {
-              notify();
+              addToCart();
             dispatch(addBagitems(product))
             }}
             className="w-full flex justify-center items-center gap-4  md:w-auto px-8 py-3 bg-[#FF3E6C] text-white font-semibold rounded-sm hover:bg-[#FF5C7E] transition"
@@ -92,7 +94,8 @@ const DetailAboutProduct = () => {
           {/* whishlist button  */}
           <button
             onClick={() => {
-              notify();
+              addToWishlist();
+              dispatch(setWishlistItems(product))
              
             }}
             className="w-full flex border  justify-center items-center gap-4  md:w-auto px-8 py-3 font-semibold rounded-sm  transition"

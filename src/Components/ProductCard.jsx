@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { setProduct } from "../Features/cetogerySlice";
-
+import { LiaRupeeSignSolid } from "react-icons/lia";
 const ProductCard = ({ product}) => {
  
     return (
@@ -16,15 +16,12 @@ const ProductCard = ({ product}) => {
   
         {/* Product Details */}
         <div className="flex flex-col flex-grow mt-3">
-          <h2 className="text-lg font-semibold line-clamp-1">{product?.title || "No Title"}</h2>
+          <h2 className="text-lg font-semibold line-clamp-1 uppercase">{product?.title || "No Title"}</h2>
           <p className="text-gray-500 text-sm mt-1">{product?.category   || "Unknown Category"}</p>
-          <p className="text-green-600 font-bold mt-1">${product?.price?.toFixed(2) || "N/A"}</p>
+          <p className=" font-bold mt-1 flex items-center text-[#FF3E6C]"><LiaRupeeSignSolid className="mt-1" /> {product?.price?.toFixed(2) || "N/A"}</p>
         </div>
   
-        {/* Button */}
-        <button className="mt-3 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition">
-          Add to Cart
-        </button>
+       
       </div>
     );
   };

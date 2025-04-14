@@ -13,7 +13,14 @@ const bagSlice = createSlice({
 
   },
   deleteBagItems : (state,actions)=>{
-    console.log("deltebagitems")
+    const indexToRemove = state.bagItems.findIndex(
+      (product) => product.id === actions.payload.id
+    );
+    
+    if (indexToRemove !== -1) {
+      state.bagItems.splice(indexToRemove, 1);
+    }
+    
   }
   },
 });

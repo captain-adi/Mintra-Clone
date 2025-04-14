@@ -54,7 +54,7 @@ function Header() {
             <CiUser className="text-2xl" />
             <span className="text-[0.7rem]">Profile</span>
           </Link>
-          <Link className="flex flex-col items-center">
+          <Link to={"/wishlist"} className="flex flex-col items-center">
             <CiHeart className="text-2xl" />
             <span className="text-[0.7rem]">Wishlist</span>
           </Link>

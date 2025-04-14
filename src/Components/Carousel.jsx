@@ -28,7 +28,7 @@ function Carousel() {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full  overflow-hidden">
       {/* Carousel container */}
       <div
         className="flex transition-transform duration-500 ease-in-out"
@@ -48,7 +48,7 @@ function Carousel() {
       {/* Navigation arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 focus:outline-none"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 text-white sm:p-2 rounded-full hover:bg-black/50 focus:outline-none"
         aria-label="Previous slide"
       >
         <svg
@@ -68,7 +68,7 @@ function Carousel() {
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 focus:outline-none"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 text-white sm:p-2 rounded-full hover:bg-black/50 focus:outline-none"
         aria-label="Next slide"
       >
         <svg
@@ -93,7 +93,7 @@ function Carousel() {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full ${
+            className={`w-1 h-1 sm:w-3 sm:h-3 rounded-full ${
               index === currentSlide ? "bg-white" : "bg-white/50"
             }`}
             aria-label={`Go to slide ${index + 1}`}

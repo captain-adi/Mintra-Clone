@@ -10,6 +10,7 @@ import { store } from "./Store/Store.js";
 import Category from "./pages/Category.jsx";
 import DetailAboutProduct from "./pages/DetailAboutProduct.jsx";
 import Bag from "./pages/Bag.jsx";
+import WishList from "./pages/WishList.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,9 @@ const router = createBrowserRouter([
       {
         path : "/bag",
         element : <Bag/>
+      },{
+        path : "/wishlist",
+        element : <WishList/>
       }
     ],
   },

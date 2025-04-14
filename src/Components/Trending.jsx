@@ -8,7 +8,7 @@ function Trending() {
        TRENDING IN FOOTWEAR
       </h3>
     <section className="trendingFootWear">
-      <div className="upperFootWear flex gap-7 p-10">
+      <div className="upperFootWear flex gap-2 p-2 md:gap-7 md:p-10">
         <div className="FootCard">
           <a href="#">
             <img
@@ -54,7 +54,7 @@ function Trending() {
           </a>
         </div>
       </div>
-      <div className="bottomFootWear flex gap-7 p-10">
+      <div className="bottomFootWear  flex gap-2 p-2 md:gap-7 md:p-10">
         <div className="FootCard">
           <a href="#">
             <img

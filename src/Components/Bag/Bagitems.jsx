@@ -1,7 +1,10 @@
 import React from "react";
 import { RiDeleteBin5Fill } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { deleteBagItems } from "../../Features/BagSlice";
 
 function Bagitems({ bagItems }) {
+  const dispatch = useDispatch();
   console.log("bagitems : ", bagItems);
   return (
    <>
@@ -33,7 +36,9 @@ function Bagitems({ bagItems }) {
       </div>
 
       <div className="remove-from-cart">
-        <RiDeleteBin5Fill />
+        <RiDeleteBin5Fill onClick={()=>{
+          dispatch(deleteBagItems(products))
+        }}/>
       </div>
     </div>
     ))
