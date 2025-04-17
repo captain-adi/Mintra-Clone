@@ -4,7 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const bagSlice = createSlice({
   name: "bag",
   initialState: {
-    bagItems : []
+    bagItems : [],
+    donation : 0 
   },
   reducers: {
   addBagitems : (state,actions)=>{
@@ -21,9 +22,12 @@ const bagSlice = createSlice({
       state.bagItems.splice(indexToRemove, 1);
     }
     
+  },
+  addDonation : (state,actions)=>{
+         state.donation = actions.payload ;
   }
   },
 });
 
-export const { addBagitems, deleteBagItems } = bagSlice.actions;
+export const { addBagitems, deleteBagItems ,addDonation} = bagSlice.actions;
 export default bagSlice.reducer;

@@ -1,16 +1,27 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addDonation } from "../../Features/BagSlice";
+import { Link } from "react-router-dom";
 
 function BagDetails() {
+  const dispatch = useDispatch();
+  const {donation} = useSelector((state)=>state.bag)
   const { bagItems } = useSelector((state) => state.bag);
   let totalMRP = 0;
   let totalDiscount = 0;
-  const Convenience_Fee = bagItems.length > 0 ? 50 : 0;
+  let shippingFee = 0 ;
+  let platFormFee = 0 ;
+  
+  
   bagItems.map((items) => {
-    totalMRP += items.price;
-    // totalDiscount += items.original_price - items.current_price;
+    totalMRP += Math.floor(items.price);
+    totalDiscount += Math.floor(items.originalPrice - items.price);
   });
-  // let finalMRP = totalMRP + Convenience_Fee;
+  let finalMRP = totalMRP + Number(donation) ;
+  platFormFee = bagItems.length > 0 ? 0 : 20 ;
+  shippingFee = finalMRP < 1000 ? 50 : "FREE";
+  finalMRP +=  shippingFee + platFormFee
+  
 
   return (
     <div className="border p-4 rounded-md shadow-sm bg-white w-full max-w-md">
@@ -34,12 +45,15 @@ function BagDetails() {
         <span>Donate and make a difference</span>
       </label>
       <div className="flex gap-2 mb-1">
-        {["₹10", "₹20", "₹50", "₹100"].map((amt) => (
+        {["10", "20", "50", "100"].map((amt) => (
           <button
+          onClick={()=>{
+               dispatch(addDonation(amt))
+          }}
             key={amt}
-            className="border px-3 py-1 rounded-full text-sm hover:bg-gray-100"
+            className="border   px-3 py-1 rounded-full text-sm hover:bg-gray-100"
           >
-            {amt}
+            ₹{amt}
           </button>
         ))}
       </div>
@@ -52,14 +66,18 @@ function BagDetails() {
   
     {/* Price Details */}
     <div>
-      <h3 className="text-sm font-bold text-gray-800 mb-3">PRICE DETAILS (1 Item)</h3>
+      <h3 className="text-sm font-bold text-gray-800 mb-3">PRICE DETAILS ({bagItems.length}) Item</h3>
       <div className="flex justify-between text-sm text-gray-600 mb-1">
         <span>Total MRP</span>
         <span>₹{totalMRP}</span>
       </div>
       <div className="flex justify-between text-sm text-green-600 mb-1">
-        <span>Discount on MRP</span>
-        <span>- ₹6,888</span>
+        <span>Discount on MRP (You Saved)</span>
+        <span> ₹{totalDiscount}</span>
+      </div>
+      <div className="flex justify-between text-sm text-gray-600 mb-1">
+        <span>Social Work Donation</span>
+        <span>{donation}</span>
       </div>
       <div className="flex justify-between text-sm text-gray-600 mb-1">
         <span>Coupon Discount</span>
@@ -72,14 +90,14 @@ function BagDetails() {
           Platform Fee{" "}
           <button className="text-pink-500 text-xs hover:underline">Know More</button>
         </span>
-        <span>₹20</span>
+        <span>₹{platFormFee}</span>
       </div>
       <div className="flex justify-between text-sm text-gray-600 mb-1">
         <span>
           Shipping Fee{" "}
           <button className="text-pink-500 text-xs hover:underline">Know More</button>
         </span>
-        <span className="text-green-500">FREE</span>
+        <span className="text-green-500">{shippingFee}</span>
       </div>
     </div>
   
@@ -88,7 +106,7 @@ function BagDetails() {
     {/* Total */}
     <div className="flex justify-between items-center font-semibold text-gray-800 text-lg mb-2">
       <span>Total Amount</span>
-      <span>₹1,531</span>
+      <span>{finalMRP}</span>
     </div>
   
     {/* Free verification */}
@@ -98,9 +116,12 @@ function BagDetails() {
     </div>
   
     {/* Place Order Button */}
+    <Link to={"/address"}>
     <button className="w-full bg-pink-500 text-white font-bold py-2 rounded-sm hover:bg-pink-600 transition">
       PLACE ORDER
     </button>
+    </Link>
+
   </div>
   
   );
