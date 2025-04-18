@@ -1,5 +1,4 @@
-import { useDispatch } from "react-redux";
-import { setProduct } from "../Features/cetogerySlice";
+
 import { LiaRupeeSignSolid } from "react-icons/lia";
 const ProductCard = ({ product }) => {
   return (

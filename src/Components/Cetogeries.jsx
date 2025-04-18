@@ -12,6 +12,7 @@ function Categories() {
         "https://e-com-api-vru7.onrender.com/api/category"
       );
       const data = await response.json();
+      console.log(data)
       dispatch(setCategories(data)); // Dispatch action with fetched data
     };
     fetchCategory(); // Fixed incorrect function call
