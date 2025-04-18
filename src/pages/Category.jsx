@@ -26,7 +26,7 @@ function Category() {
   }, []);
 
   return (
-    <div className="grid grid-cols-6 p-5 gap-6">
+    <div className="grid grid-cols-6 p-5 h-[80vh] gap-6">
       {categoryItems.length > 0 ? (
         categoryItems.map((product) => (
           <Link to={`/category/${product.category}/${product._id}`}>

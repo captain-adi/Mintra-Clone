@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addDonation } from "../../Features/BagSlice";
+import { addDonation, addPriceDetail } from "../../Features/BagSlice";
 import { Link } from "react-router-dom";
 
 function BagDetails() {
@@ -117,7 +117,9 @@ function BagDetails() {
   
     {/* Place Order Button */}
     <Link to={"/address"}>
-    <button className="w-full bg-pink-500 text-white font-bold py-2 rounded-sm hover:bg-pink-600 transition">
+    <button onClick={()=>{
+      dispatch(addPriceDetail({totalMRP,totalDiscount,shippingFee,platFormFee,finalMRP}))
+    }} className="w-full bg-pink-500 text-white font-bold py-2 rounded-sm hover:bg-pink-600 transition">
       PLACE ORDER
     </button>
     </Link>
