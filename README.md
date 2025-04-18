@@ -1,8 +1,37 @@
-# React + Vite
+# 🛍️ Myntra Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully functional **Myntra Clone** built using **React** and **Redux**, designed to mimic the user experience of the original fashion e-commerce platform. This project demonstrates front-end development skills including component-based architecture, state management, dynamic routing, and responsive design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+
+- 🔍 Browse products by category (Clothing, Electronics, Shoes, Mobiles, Books, etc.)
+- 🛒 Add to Bag / Remove from Bag functionality
+- ❤️ Like and Follow buttons on product cards
+- 📱 Responsive design for mobile and desktop
+- ⚙️ Filter and sort products (by price, category, brand)
+- 🔄 Loader while fetching API data
+- 🗑️ Delete product from bag/cart
+- 🌐 React Router for page navigation
+- 💾 State management using Redux Toolkit
+- 🎨 Styled with Tailwind CSS
+
+---
+
+## 🧰 Tech Stack
+
+- **Frontend**: React, Redux Toolkit, React Router DOM
+- **Styling**: Tailwind CSS
+- **Backend**: (Optional / Planned) Appwrite / Node.js / Express
+- **Bundler**: Vite
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/yourusername/myntra-clone.git
+cd myntra-clone
+npm install
+npm run dev
