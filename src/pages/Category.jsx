@@ -29,7 +29,7 @@ function Category() {
   }, []);
 
   return (
-    <div className="grid grid-cols-6 p-5 h-[80vh] gap-6">
+    <div className="flex flex-col  items-center md:items-start sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 p-5 md:h-[80vh] gap-6">
       {categoryItems.length > 0
         ? categoryItems.map((product) => (
             <Link to={`/category/${product.category}/${product._id}`}>

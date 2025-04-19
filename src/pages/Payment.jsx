@@ -47,38 +47,40 @@ const Payment = () => {
 
   return (
     <>
-      <div class="flex items-center justify-between px-9 py-7 shadow-md bg-white">
-        {/* <!-- Left Logo --> */}
-        <div>
+      <div className="flex items-center justify-between px-4 py-5 shadow-md bg-white flex-wrap">
+        {/* Logo */}
+        <div className="mb-2 md:mb-0">
           <img
             src="https://cdn.freelogovectors.net/wp-content/uploads/2023/01/myntra-logo-freelogovectors.net_.png"
             alt="Myntra Logo"
-            class=" h-[1rem] md:h-[2rem]"
+            className="h-4 md:h-8"
           />
         </div>
 
-        {/* <!-- Center Steps --> */}
-        <div class="flex items-center space-x-4 text-xs tracking-wide font-semibold text-gray-600">
-          <span class="">BAG</span>
+        {/* Steps */}
+        <div className="flex items-center space-x-2 text-xs tracking-wide font-semibold text-gray-600 mb-2 md:mb-0">
+          <span>BAG</span>
           <span>---------</span>
-          <span>ADDRESS</span>
+          <span className="text-teal-500 border-b-2 border-teal-500">
+            ADDRESS
+          </span>
           <span>---------</span>
-          <span className="text-teal-500 border-b-2 border-teal-500 ">PAYMENT</span>
+          <span>PAYMENT</span>
         </div>
 
-        {/* <!-- Right Secure Icon --> */}
-        <div class="flex items-center space-x-1 text-sm text-gray-600">
+        {/* Secure Icon */}
+        <div className="flex items-center space-x-1 text-sm text-gray-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 text-teal-500"
+            className="h-5 w-5 text-teal-500"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M12 11c0 .552-.224 1.052-.586 1.414A1.994 1.994 0 0110 13c-.552 0-1.052-.224-1.414-.586A1.994 1.994 0 018 11c0-.552.224-1.052.586-1.414A1.994 1.994 0 0110 9c.552 0 1.052.224 1.414.586A1.994 1.994 0 0112 11zM5 11a7 7 0 1114 0c0 5.25-3.5 9.75-7 12-3.5-2.25-7-6.75-7-12z"
             />
           </svg>
@@ -172,7 +174,9 @@ const Payment = () => {
               </div>
               <div className="flex justify-between">
                 <span>Shipping Fee</span>
-                <span className="text-green-600">{priceDetails.shippingFee}</span>
+                <span className="text-green-600">
+                  {priceDetails.shippingFee}
+                </span>
               </div>
               <hr className="my-2" />
               <div className="flex justify-between font-semibold">

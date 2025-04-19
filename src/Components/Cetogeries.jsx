@@ -26,20 +26,23 @@ function Categories() {
         CATEGORIES
       </h3>
       <section className="bagcategory bg-gray-100">
-  <div className="upperBagCategories flex gap-2 p-2 sm:gap-10 sm:p-7 bg-red-900 ">
+  <div className="upperBagCategories flex gap-2 p-2 sm:gap-10 sm:p-7 ">
     {categories.slice(0, 5)?.map((obj) => (
-      <div className="bagcard" key={obj.id}>
-        <Link to={`/category/${obj.slug}`}>
-          <div className="aspect-[4/3] w-full rounded-md shadow-sm bg-gray-100">
-            <img
-              src={obj.image}
-              alt={obj.name}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </Link>
-        <p className="mt-2 text-sm font-medium">{obj.name}</p>
-      </div>
+      <div className="bg-white rounded-md shadow-sm overflow-hidden" key={obj.id}>
+      <Link to={`/category/${obj.slug}`}>
+        <div className="w-full bg-gray-100">
+          <img
+            src={obj.image}
+            alt={obj.name}
+            className="w-full h-24 sm:h-32 md:h-40 lg:h-56 xl:h-72 object-cover transition-transform duration-300 hover:scale-105"
+          />
+        </div>
+      </Link>
+      <p className="mt-2 text-center text-sm sm:text-base md:text-lg font-medium px-2 truncate">
+        {obj.name}
+      </p>
+    </div>
+    
     ))}
   </div>
 </section>
