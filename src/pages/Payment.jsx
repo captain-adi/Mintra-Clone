@@ -61,11 +61,11 @@ const Payment = () => {
         <div className="flex items-center space-x-2 text-xs tracking-wide font-semibold text-gray-600 mb-2 md:mb-0">
           <span>BAG</span>
           <span>---------</span>
-          <span className="text-teal-500 border-b-2 border-teal-500">
-            ADDRESS
-          </span>
+          <span className="">ADDRESS</span>
           <span>---------</span>
-          <span>PAYMENT</span>
+          <span className="text-teal-500 border-b-2 border-teal-500">
+            PAYMENT
+          </span>
         </div>
 
         {/* Secure Icon */}
@@ -87,7 +87,7 @@ const Payment = () => {
           <span>100% SECURE</span>
         </div>
       </div>
-      <div className="min-h-screen bg-gray-100 p-6">
+      <div className="h-[calc(100vh-72px)] bg-gray-100 p-6">
         {/* Bank Offer */}
         <div className="max-w-6xl mx-auto bg-white p-4 rounded shadow mb-6">
           <h2 className="text-sm font-semibold mb-2 flex items-center gap-2">

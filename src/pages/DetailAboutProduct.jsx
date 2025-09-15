@@ -9,22 +9,28 @@ import { addBagitems } from "../Features/BagSlice";
 import { CiHeart } from "react-icons/ci";
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import { setWishlistItems } from "../Features/wishlistSlice";
+import axios from "../api/apiConfige";
 
 const DetailAboutProduct = () => {
   const dispatch = useDispatch();
-  const addToCart = () => {toast.success("ADDED TO CART") };
+  const addToCart = () => {
+    toast.success("ADDED TO BAG");
+  };
   const addToWishlist = () => toast.success("ADDED TO WISHLIST");
   const [product, setProduct] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
     const datafetch = async () => {
-      const response = await fetch(
-        "https://e-com-api-vru7.onrender.com/api/product"
-      );
-      const responseData = await response.json();
-      const filteredData = responseData.filter((obj) => obj._id === id);
-      setProduct(filteredData[0]);
+      try {
+        const apiResponse = await axios("/product");
+        const responseData = apiResponse.data.data;
+        console.log("response data is : ", responseData);
+        const filteredData = responseData.filter((obj) => obj._id === id);
+        setProduct(filteredData[0]);
+      } catch (error) {
+        console.log(error);
+      }
     };
     datafetch();
   }, [id]);
@@ -34,7 +40,7 @@ const DetailAboutProduct = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8">
       <ToastContainer autoClose={3000} />
 
       <div className="grid md:grid-cols-2 gap-10">
@@ -77,31 +83,31 @@ const DetailAboutProduct = () => {
 
           {/* Price */}
           <p className="text-3xl flex  items-center font-bold text-gray-800">
-          <LiaRupeeSignSolid />   {product?.price?.toFixed(2)}
+            <LiaRupeeSignSolid /> {product?.price?.toFixed(2)}
           </p>
 
           {/* Cart Button */}
           <div className="flex  gap-10">
-          <button
-            onClick={() => {
-              addToCart();
-            dispatch(addBagitems(product))
-            }}
-            className="w-full flex justify-center items-center gap-4  md:w-auto px-8 py-3 bg-[#FF3E6C] text-white font-semibold rounded-sm hover:bg-[#FF5C7E] transition"
-          >
-            <PiHandbagFill className="mt-1 text-xl" />ADD TO BAG
-          </button>
-          {/* whishlist button  */}
-          <button
-            onClick={() => {
-              addToWishlist();
-              dispatch(setWishlistItems(product))
-             
-            }}
-            className="w-full flex border  justify-center items-center gap-4  md:w-auto px-8 py-3 font-semibold rounded-sm  transition"
-          >
-           <CiHeart className="text-2xl" /> WISHLIST
-          </button>
+            <button
+              onClick={() => {
+                addToCart();
+                dispatch(addBagitems(product));
+              }}
+              className="w-full flex justify-center items-center gap-4  md:w-auto px-8 py-3 bg-[#FF3E6C] text-white font-semibold rounded-sm hover:bg-[#FF5C7E] transition"
+            >
+              <PiHandbagFill className="mt-1 text-xl" />
+              ADD TO BAG
+            </button>
+            {/* whishlist button  */}
+            <button
+              onClick={() => {
+                addToWishlist();
+                dispatch(setWishlistItems(product));
+              }}
+              className="w-full flex border  justify-center items-center gap-4  md:w-auto px-8 py-3 font-semibold rounded-sm  transition"
+            >
+              <CiHeart className="text-2xl" /> WISHLIST
+            </button>
           </div>
 
           {/* Description */}

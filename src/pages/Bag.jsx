@@ -8,9 +8,9 @@ function Bag() {
   const { bagItems } = useSelector((state) => state.bag);
 
   return (
-    <>
+    <div className="container mx-auto">
       {bagItems.length !== 0 ? (
-        <main className="flex flex-col lg:flex-row gap-4 w-full max-w-6xl mx-auto p-4">
+        <main className="flex flex-col lg:flex-row gap-4 max-w-6xl mx-auto p-4">
           <div className="w-full lg:w-2/3">
             <Bagitems bagItems={bagItems} />
           </div>
@@ -19,7 +19,7 @@ function Bag() {
           </div>
         </main>
       ) : (
-        <div className="flex flex-col items-center justify-center h-[70vh] text-center p-4">
+        <div className="flex flex-col items-center justify-center text-center  p-4">
           <img
             src="https://constant.myntassets.com/checkout/assets/img/empty-bag.webp"
             alt="Empty Bag"
@@ -38,7 +38,7 @@ function Bag() {
           </Link>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

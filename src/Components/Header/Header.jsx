@@ -5,9 +5,11 @@ import { FiSearch } from "react-icons/fi";
 import { CiHeart } from "react-icons/ci";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { bagItems } = useSelector((state) => state.bag);
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -60,16 +62,16 @@ function Header() {
           </Link>
           <Link to="/bag" className="flex flex-col items-center relative">
             <HiOutlineShoppingBag className="text-2xl" />
-            {/* <span className="absolute -top-2 left-3.5 rounded-full bg-red-500 p-0.5 px-2 text-sm text-white">
+            <span className="absolute -top-2 left-3.5 rounded-full bg-red-500 p-0.5 px-2 text-sm text-white">
               {bagItems.length}
-            </span> */}
+            </span>
             <span className="text-[0.7rem]">Bag</span>
           </Link>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      { menuOpen && (
+      {menuOpen && (
         <div className="md:hidden w-full bg-white shadow-md absolute">
           {/* Search Bar */}
           <div className="flex m-auto items-center w-[85vw] border rounded-md shadow-sm bg-gray-100 p-2 mb-4">

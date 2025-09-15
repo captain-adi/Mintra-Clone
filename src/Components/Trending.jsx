@@ -21,7 +21,7 @@ function Trending() {
       <section className="trendingFootWear">
         <div className="upperFootWear grid grid-cols-5 gap-2 p-2 md:gap-7 md:p-10">
           {images.map((imageLink) => (
-            <Link to={`/category/shoes`}>
+            <Link to={`/category/shoes`} key={imageLink}>
               <div className="FootCard">
                 <a href="#">
                   <img src={imageLink} alt="" />

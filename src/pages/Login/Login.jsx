@@ -1,8 +1,12 @@
 import { useForm } from "react-hook-form";
 import axios from "../../api/apiConfige";
 import { toast } from "react-toastify";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const { user, setUser } = useAuth();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -12,7 +16,10 @@ function Login() {
   const onsubmit = async (data) => {
     try {
       const res = await axios.post("/auth/login", data);
+      console.log(res.data.data.user);
+      setUser(res.data.data.user);
       toast.success(res.data.message);
+      navigate("/");
     } catch (error) {
       toast.error(error.response.data.message);
     }
