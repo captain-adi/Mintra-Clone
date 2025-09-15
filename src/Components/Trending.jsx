@@ -23,9 +23,7 @@ function Trending() {
           {images.map((imageLink) => (
             <Link to={`/category/shoes`} key={imageLink}>
               <div className="FootCard">
-                <a href="#">
-                  <img src={imageLink} alt="" />
-                </a>
+                <img src={imageLink} alt="" />
               </div>
             </Link>
           ))}

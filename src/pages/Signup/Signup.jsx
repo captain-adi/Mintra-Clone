@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import axios from "../../api/apiConfige";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 function Signup() {
   const {
@@ -103,9 +104,9 @@ function Signup() {
 
         <p className="text-center text-gray-600 text-sm mt-6">
           Already have an account?{" "}
-          <a href="/login" className="text-blue-500 hover:underline">
+          <Link to="/login" className="text-blue-500 hover:underline">
             Login
-          </a>
+          </Link>
         </p>
       </div>
     </div>

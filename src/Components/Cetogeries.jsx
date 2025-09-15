@@ -11,7 +11,6 @@ function Categories() {
       try {
         const apiResponse = await axios("/category");
         const { data } = apiResponse.data;
-        console.log(data);
         dispatch(setCategories(data)); // Dispatch action with fetched data
       } catch (error) {
         console.error("Error fetching categories:", error);

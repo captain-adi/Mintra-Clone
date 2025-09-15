@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import axios from "../../api/apiConfige";
 import { toast } from "react-toastify";
 import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const { user, setUser } = useAuth();
@@ -67,12 +67,9 @@ function Login() {
               </p>
             )}
             <div className="text-right mt-2">
-              <a
-                href="/forgot-password"
-                className="text-blue-500 text-sm hover:underline"
-              >
+              <Link to="#" className="text-blue-500 text-sm hover:underline">
                 Forgot Password?
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -88,9 +85,9 @@ function Login() {
         {/* Footer */}
         <p className="text-center text-gray-600 text-sm mt-8">
           Don’t have an account?{" "}
-          <a href="/signup" className="text-blue-500 hover:underline">
+          <Link href="/signup" className="text-blue-500 hover:underline">
             Sign Up
-          </a>
+          </Link>
         </p>
       </div>
     </div>
